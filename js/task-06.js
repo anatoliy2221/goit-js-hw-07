@@ -11,6 +11,7 @@ const boxesContainer = document.querySelector("#boxes");
 
 createBtn.addEventListener("click", getAmountInput);
 function getAmountInput() {
+  boxesContainer.innerHTML = "";
   const amount = input.value;
   if (amount >= 1 && amount <= 100) {
     for (let i = 0; i < amount; i++) {
@@ -19,6 +20,7 @@ function getAmountInput() {
       box.style.height = `${30 + 10 * i}px`;
       box.style.backgroundColor = getRandomHexColor();
       boxesContainer.appendChild(box);
+      input.value = "";
     }
   }
 }
@@ -26,5 +28,4 @@ function getAmountInput() {
 destroyBtn.addEventListener("click", destroyBoxes);
 function destroyBoxes() {
   boxesContainer.innerHTML = "";
-  input.value = "";
 }
